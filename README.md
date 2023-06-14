@@ -31,7 +31,8 @@ allows the user to specify which Deck is going to get cards added: </p>
 https://github.com/Hugo-Hattori/autofill_Anki_PJO/blob/ae1f68ff550fb8c018ca64909f93fc6174732762/autofill_Anki_PJO.py#L101-L111
 
 <p> Each flashcard contains a front (word or sentence to learn) and a back (translation and how to read the word/sentence),
- each front and back is extracted from a Python list respectively named "lista_frentes" and "lista_tras".
+ each front and back is extracted from a Python list respectively named "lista_frentes" and "lista_tras". Both of those lists
+ extract data from the PJO lesson website specified as "link_licao" by the user.
  The code below then adds each flashcard to the respective deck: </p>
 
 https://github.com/Hugo-Hattori/autofill_Anki_PJO/blob/ae1f68ff550fb8c018ca64909f93fc6174732762/autofill_Anki_PJO.py#L120-L125
