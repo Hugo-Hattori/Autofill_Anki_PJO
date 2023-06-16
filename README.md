@@ -9,11 +9,11 @@ which is a japanese online course.</p>
 + webdriver_manager
 + time
 
-<h3> What is Anki? </h3>
+<h2> What is Anki? </h2>
 <p>Anki is a free open-source flashcard program that uses spaced repetition technique,
 a much more efficient method for learning and remembering vocabulary than the traditional study means.</p>
 
-<h3> What is PJO? </h3>
+<h2> What is PJO? </h2>
 <p>PJO or "Programa Japonês Online" is a language course for japanese learning in which 
 each lesson a series of new sentences and vocabulary is presented and explained in detail.</p>
 
@@ -23,7 +23,7 @@ contains a front and a back, hence the creation of Autofill Anki.</p>
 
 obs: "import minha_senha" refers to another .py file that contains my login information for both Anki and PJO plataforms.
 
-<h3> About Flashcard and Deck creation </h3>
+<h2> About Flashcard and Deck creation </h2>
 <p> Before starting adding cards to the Anki account it is necessary to create a Deck, in this case there were 3 Decks created:</p>
 
 + Escrita Japonesa: a deck focused on pronunciation and how to read kanjis
