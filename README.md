@@ -2,7 +2,12 @@
  
 <p>This is a code created for personal use with the objective of automatically
 creating flashcards for Anki by using phrases and words gathered from PJO
-which is a japanese online course. This code uses the Selenium package.</p>
+which is a japanese online course.</p>
+
+### Packages used:
++ Selenium
++ webdriver_manager
++ time
 
 <h3> What is Anki? </h3>
 <p>Anki is a free open-source flashcard program that uses spaced repetition technique,
