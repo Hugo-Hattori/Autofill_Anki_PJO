@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -24,9 +18,6 @@ servico = Service(ChromeDriverManager().install())
 navegador = webdriver.Chrome(service=servico)
 
 
-# In[2]:
-
-
 #login no site da PJO
 navegador.get(r'https://portal.programajaponesonline.com.br/login/')
 time.sleep(tempo_espera)
@@ -34,9 +25,6 @@ navegador.find_element(By.ID, 'user_login').send_keys(minha_senha.login_jpo)
 navegador.find_element(By.ID, 'user_pass').send_keys(minha_senha.senha_jpo)
 navegador.find_element(By.ID, 'wp-submit').click()
 time.sleep(tempo_espera)
-
-
-# In[3]:
 
 
 #entra na lição
@@ -59,9 +47,6 @@ lista_frentes = [frente.text for frente in fronts]
 lista_tras = [tras.text for tras in backs]
 
 
-# In[4]:
-
-
 #verificando as frentes e as traseiras do cards
 print(lista_frentes)
 print(lista_tras)
@@ -72,16 +57,9 @@ for item in lista_frentes:
         exit()
         time.sleep(5)
 
-
-# In[5]:
-
-
 #verificando visualmente qual a quantidade de frases que serão adicionadas no Anki
 print(len(lista_frentes))
 print(len(lista_tras))
-
-
-# In[6]:
 
 
 #login no ankiweb
@@ -95,9 +73,6 @@ navegador.get(r'https://ankiuser.net/edit/')
 time.sleep(tempo_espera)
 
 
-# In[7]:
-
-
 if tipo_de_licao == '1':
     #opção Escrita Japonesa
     navegador.find_element(By.ID, 'deck').send_keys('Escrita em Japonês')
@@ -109,11 +84,7 @@ elif tipo_de_licao == '2':
 else:
     #deck de testes
     navegador.find_element(By.ID, 'deck').send_keys('testes')
-
 time.sleep(3)
-
-
-# In[8]:
 
 
 #criando o card
@@ -123,10 +94,6 @@ for i, botao in enumerate(lista_botao):
     time.sleep(3)
     navegador.find_element(By.XPATH, '/html/body/main/p/button').click()
     time.sleep(3)
-
-
-# In[9]:
-
 
 #fechando o navegador
 navegador.close()
