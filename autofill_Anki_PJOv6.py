@@ -52,7 +52,6 @@ print(lista_tras)
 #caso haja algum item vazio, interrompe o código
 for item in lista_frentes:
     if item == '':
-        exit()
         navegador.close()
 
 #verificando visualmente qual a quantidade de frases que serão adicionadas no Anki
@@ -86,12 +85,18 @@ time.sleep(3)
 
 #criando o card
 for i, botao in enumerate(lista_botao):
-    campos = navegador.find_elements(By.CLASS_NAME, 'form-control')
-    campos[0].send_keys(lista_frentes[i])
-    campos[1].send_keys(lista_tras[i])
-    time.sleep(3)
-    navegador.find_element(By.XPATH, '/html/body/main/form/button').click()
-    time.sleep(3)
-
+    try:
+        campos = navegador.find_elements(By.CLASS_NAME, 'form-control')
+        campos[0].send_keys(lista_frentes[i])
+        campos[1].send_keys(lista_tras[i])
+        time.sleep(3)
+        navegador.find_element(By.XPATH, '/html/body/main/form/button').click()
+        time.sleep(3)
+    except:
+        navegador.find_element(By.XPATH, '/html/body/main/form/button').send_keys(Keys.END)
+        time.sleep(3)
+        navegador.find_element(By.XPATH, '/html/body/main/form/button').click()
+        time.sleep(3)
+        
 #fechando o navegador
 navegador.close()
