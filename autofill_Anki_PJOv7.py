@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 import time
@@ -15,8 +16,11 @@ site_lento = input('O site está lento? y/n ').casefold()
 
 tempo_espera = 15 if site_lento =='y' else 5
 
-servico = Service(ChromeDriverManager().install())
-navegador = webdriver.Chrome(service=servico)
+# servico = Service(ChromeDriverManager().install())
+servico = Service(ChromeDriverManager(version='114.0.5735.90').install())
+opcoes = Options()
+opcoes.add_argument("--start-maximized")
+navegador = webdriver.Chrome(service=servico, options=opcoes)
 
 #login no site da PJO
 navegador.get(r'https://portal.programajaponesonline.com.br/login/')
@@ -64,22 +68,22 @@ time.sleep(tempo_espera)
 campos = navegador.find_elements(By.CLASS_NAME, 'form-control')
 campos[0].send_keys(minha_senha.login_anki)
 campos[1].send_keys(minha_senha.senha_anki)
-navegador.find_element(By.XPATH, '/html/body/main/form/div[3]/button').click()
+navegador.find_element(By.XPATH, '/html/body/div/main/form/div[3]/button').click()
 time.sleep(tempo_espera)
 navegador.get(r'https://ankiuser.net/edit/')
 time.sleep(tempo_espera)
 
 if tipo_de_licao == '1':
     #opção Escrita Japonesa
-    navegador.find_element(By.XPATH, '/html/body/main/form/div[2]/div/div/div[2]/input').send_keys('Escrita em Japonês', Keys.TAB)
+    navegador.find_element(By.XPATH, '/html/body/div/main/div[2]/div/div/div[2]/input').send_keys('Escrita em Japonês', Keys.TAB)
 
 elif tipo_de_licao == '2':
     #opção Frases em Japonês
-    navegador.find_element(By.XPATH, '/html/body/main/form/div[2]/div/div/div[2]/input').send_keys('Frases em Japonês', Keys.TAB)
+    navegador.find_element(By.XPATH, '/html/body/div/main/div[2]/div/div/div[2]/input').send_keys('Frases em Japonês', Keys.TAB)
 
 else:
     #deck de testes
-    navegador.find_element(By.XPATH, '/html/body/main/form/div[2]/div/div/div[2]/input').send_keys('testes', Keys.TAB)
+    navegador.find_element(By.XPATH, '/html/body/div/main/div[2]/div/div/div[2]/input').send_keys('testes', Keys.TAB)
 
 time.sleep(3)
 
@@ -90,13 +94,13 @@ for i, botao in enumerate(lista_botao):
         campos[0].send_keys(lista_frentes[i])
         campos[1].send_keys(lista_tras[i])
         time.sleep(3)
-        navegador.find_element(By.XPATH, '/html/body/main/form/button').click()
+        navegador.find_element(By.XPATH, '/html/body/div/main/form/button').click()
         time.sleep(3)
     except:
         navegador.find_element(By.XPATH, '/html/body/main/form/button').send_keys(Keys.END)
         time.sleep(3)
-        navegador.find_element(By.XPATH, '/html/body/main/form/button').click()
+        navegador.find_element(By.XPATH, '/html/body/div/main/form/button').click()
         time.sleep(3)
-        
+
 #fechando o navegador
 navegador.close()
