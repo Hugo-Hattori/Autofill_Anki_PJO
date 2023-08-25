@@ -21,7 +21,7 @@ each lesson a series of new sentences and vocabulary is presented and explained 
 in each lesson to Anki as a flashcard, which can be quite a hassle considering each flashcard
 contains a front and a back, hence the creation of Autofill Anki.</p>
 
-obs: "import minha_senha" refers to another .py file that contains my login information for both Anki and PJO plataforms.
+obs: "import infos" refers to a .py file that contains login information for both Anki and PJO plataforms and the Deck names used on Anki.
 
 <h2> About Flashcard and Deck creation </h2>
 <p> Before starting adding cards to the Anki account it is necessary to create a Deck, in this case there were 3 Decks created:</p>
